@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Earning Calculator" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="EMI Calculator"
+            />
+        <item android:title="">
+            <menu>
+                <item
+                    android:id="@+id/nav_Newsfeeds"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="News Feeds"
+                    />
+                <item
+                    android:id="@+id/nav_Howitworks"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="How it works" />
+                <item
+                    android:id="@+id/nav_Tips"
+                    android:icon="@drawable/ic_menu_manage"
+                    android:title="Tips" />
+            </menu>
+        </item>
+        <item android:title="">
+        <menu>
+        <item
+            android:id="@+id/signout"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Signout" />
+        </menu>
+        </item>
+    </group>
+
+    <!--<item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>-->
+
+</menu>
