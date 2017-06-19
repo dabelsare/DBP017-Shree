@@ -22,7 +22,7 @@ public class Home extends Activity{
     LoginDataBaseAdapter loginDataBaseAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+    	//this is home
 // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
