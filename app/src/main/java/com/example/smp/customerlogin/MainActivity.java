@@ -1,6 +1,7 @@
 package com.example.smp.customerlogin;
 
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -14,6 +15,12 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import org.apache.http.message.*;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 public class MainActivity extends Activity {
 
     LoginDataBaseAdapter loginDataBaseAdapter;
@@ -23,6 +30,9 @@ public class MainActivity extends Activity {
     EditText enterpassword,username;
     TextView forgetpass;
 
+    String URL= "http://smartbizit.com/aquasmart/index.php";
+
+    JSONParser jsonParser = new JSONParser();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,44 +66,33 @@ public class MainActivity extends Activity {
 // TODO Auto-generated method stub
                 String Password=enterpassword.getText().toString();
                 String Username=username.getText().toString();
-
-             /*   Cursor cur=loginDataBaseAdapter.fetchUser(Username,Password);
-                System.out.println("cur.getCount()   "+cur.getCount());
-                if(cur.getCount()!=0) {
-                    String usn=cur.getString(1);
-                    String pwd=cur.getString(2);
-                    if(usn.equals("Username")&& pwd.equals("Password"))
-                        System.out.println("Query succedded");
-                    Toast.makeText(getBaseContext(), "Success! Valid User name and password", Toast.LENGTH_LONG).show();
-                    Intent ii=new Intent(MainActivity.this,Home.class);
-                    startActivity(ii);
+                if(Password.equals("")||Username.equals("")){
+                    Toast.makeText(MainActivity.this, "Please Enter Username or Password", Toast.LENGTH_LONG).show();
                 }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "Invalid User name and password", Toast.LENGTH_LONG).show();
-                }
-*/
-
-                String storedPassword=loginDataBaseAdapter.getSinlgeEntry(Username);
-                String StoredID=loginDataBaseAdapter.getId(Username);
-                if(Password.equals(storedPassword))
-                {
-                    // sessionid.setusename(StoredID);
-                    //sessionid.getusename();
-                  //  Toast.makeText(getApplicationContext(),StoredID, Toast.LENGTH_LONG).show();
-                    Toast.makeText(MainActivity.this, "Congrats: Login Successfully", Toast.LENGTH_LONG).show();
-                    Intent ii=new Intent(MainActivity.this,Home.class);
-                    startActivity(ii);
-                }
-                else
-                if(Password.equals("")){
-                    Toast.makeText(MainActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "Password Incorrect", Toast.LENGTH_LONG).show();
+                else {
+                    AttemptLogin attemptLogin = new AttemptLogin();
+                    attemptLogin.execute(Username, Password);
                 }
 
+//                String storedPassword=loginDataBaseAdapter.getSinlgeEntry(Username);
+//                String StoredID=loginDataBaseAdapter.getId(Username);
+//                if(Password.equals(storedPassword))
+//                {
+//                    // sessionid.setusename(StoredID);
+//                    //sessionid.getusename();
+//                  //  Toast.makeText(getApplicationContext(),StoredID, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(MainActivity.this, "Congrats: Login Successfully", Toast.LENGTH_LONG).show();
+//                    Intent ii=new Intent(MainActivity.this,Home.class);
+//                    startActivity(ii);
+//                }
+//                else
+//                if(Password.equals("")){
+//                    Toast.makeText(MainActivity.this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
+//                }
+//                else
+//                {
+//                    Toast.makeText(MainActivity.this, "Password Incorrect", Toast.LENGTH_LONG).show();
+//                }
 
             }
         });
@@ -158,5 +157,41 @@ public class MainActivity extends Activity {
 // Close The Database
         loginDataBaseAdapter.close();
     }
-}
 
+    private class AttemptLogin extends AsyncTask<String,String,JSONObject> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected JSONObject doInBackground(String[] args) {
+            String password = args[1];
+            String name= args[0];
+
+            ArrayList params = new ArrayList();
+            params.add(new org.apache.http.message.BasicNameValuePair("username", name));
+            params.add(new org.apache.http.message.BasicNameValuePair("password", password));
+
+            JSONObject json = jsonParser.makeHttpRequest(URL, "POST", params);
+            return json;
+        }
+
+        protected void onPostExecute(JSONObject result) {
+            // dismiss the dialog once product deleted
+            try {
+                if (result.getString("success").equals("null")) {
+                    Toast.makeText(getApplicationContext(), "LogIn Fail", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(),result.getString("message"),Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(),Home.class);
+                    //intent.putExtra("UserName", "Varad");
+                    startActivity(intent);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
