@@ -70,10 +70,10 @@ public class MainActivity extends Activity {
                     Toast.makeText(MainActivity.this, "Please Enter Username or Password", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    AttemptLogin attemptLogin = new AttemptLogin();
-                    attemptLogin.execute(Username, Password);
-                }
-
+                            AttemptLogin
+                            attemptLogin = new AttemptLogin();
+                            attemptLogin.execute(Username, Password);
+                     }
 //                String storedPassword=loginDataBaseAdapter.getSinlgeEntry(Username);
 //                String StoredID=loginDataBaseAdapter.getId(Username);
 //                if(Password.equals(storedPassword))
