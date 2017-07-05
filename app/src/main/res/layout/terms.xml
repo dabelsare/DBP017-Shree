@@ -1,60 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#D8D8D8">
-
-    <ScrollView
-        android:id="@+id/scrollView1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-    </ScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/relativeLayout5">
-        <LinearLayout
-            android:id="@+id/rel1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="74dp"
-            android:orientation="vertical"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <TextView
-                android:id="@+id/showgender"
-                android:layout_width="wrap_content"
-                android:layout_height="284dp"
-                android:text="@string/termsandconditions"
-                android:layout_marginLeft="15dp" />
-        </LinearLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rel1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/relativeLayout4">
-
-        </RelativeLayout>
-
         <TextView
             android:id="@+id/textViewusername"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
-            android:text="Termsandconditions"
+            android:text="Terms and Conditions"
             android:textStyle="bold"
             android:textSize="20dp"
             android:gravity="center"
@@ -63,14 +25,38 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textColor="#fff" />
+    </LinearLayout>
 
-    </RelativeLayout>
-
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:id="@+id/rel1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            <TextView
+                android:id="@+id/showgender"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:text="@string/termsandconditions"
+                android:layout_marginLeft="15dp" />
+        </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/relativeLayout5"
         android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
         android:layout_alignParentStart="true">
 
         <Button
@@ -85,22 +71,21 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="40dp" />
+            android:layout_margin="@dimen/activity_horizontal_margin" />
 
+        <Button
+            android:id="@+id/dis_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_round_corner_button"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Disagree"
+            android:textColor="#fff"
+            android:layout_below="@+id/relativeLayout5"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/activity_horizontal_margin" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/dis_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_round_corner_button"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Disagree"
-        android:textColor="#fff"
-        android:layout_below="@+id/relativeLayout5"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="40dp" />
-
-</RelativeLayout>
+</LinearLayout>

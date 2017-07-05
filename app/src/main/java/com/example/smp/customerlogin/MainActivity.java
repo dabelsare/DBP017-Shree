@@ -185,7 +185,7 @@ public class MainActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "LogIn Fail", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(),result.getString("message"),Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(),Home.class);
+                    Intent intent = new Intent(getApplicationContext(),Registration.class);
                     //intent.putExtra("UserName", "Varad");
                     startActivity(intent);
                 }

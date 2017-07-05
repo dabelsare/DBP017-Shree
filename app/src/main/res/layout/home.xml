@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#D8D8D8">
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
         android:text="Welcome"
         android:textSize="36sp"
         android:textColor="#fff"
@@ -19,91 +20,56 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-        <RelativeLayout
+
+        <EditText
+            android:id="@+id/firstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="10dp">
-            <LinearLayout
-                android:id="@+id/rel1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="74dp"
-                android:orientation="vertical"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:ems="10"
+            android:hint="Firstname"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:maxLength="9"
+            android:padding="5dp"
+            >
+        </EditText>
 
-                <EditText
-                    android:id="@+id/firstname"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
-                    android:ems="10"
-                    android:hint="Firstname"
-                    android:background="@android:color/transparent"
-                    android:inputType="text"
-                    android:maxLength="9"
-                    android:padding="5dp"
-                    >
-              </EditText>
+        <EditText
+            android:hint="Lastname"
+            android:background="@android:color/transparent"
+            android:id="@+id/lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:ems="10"
+            android:inputType="text"
+            android:maxLength="9"
+            android:padding="5dp" >
+        </EditText>
+        <EditText
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+             android:ems="10"
+            android:inputType="text"
+            android:maxLength="9"
+            android:padding="5dp"
+            android:hint="City"
+            android:background="@android:color/transparent">
+        </EditText>
 
-                <EditText
-                    android:hint="Lastname"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/lastname"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:maxLength="9"
-                    android:padding="5dp" >
-                </EditText>
-
-
-                <EditText
-                    android:id="@+id/city"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
-                     android:ems="10"
-                    android:inputType="text"
-                    android:maxLength="9"
-                    android:padding="5dp"
-                    android:hint="City"
-
-                    android:background="@android:color/transparent">
-                </EditText>
-            </LinearLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rel1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp" >
-
-                <Button
-                    android:id="@+id/register_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_round_corner_button"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:text="Update"
-                    android:textColor="#fff"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
-            </RelativeLayout>
-        </RelativeLayout>
-    </ScrollView>
-</RelativeLayout>
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_round_corner_button"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="Update"
+        android:textColor="#fff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+</LinearLayout>
