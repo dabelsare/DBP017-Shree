@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".MainActivity"
-    android:weightSum="4.0"
-    android:layout_margin="@dimen/activity_horizontal_margin">
+    android:weightSum="4.0">
     <RelativeLayout
         android:id="@+id/reluser"
         android:layout_width="match_parent"
