@@ -3,6 +3,26 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_Leads"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Leads" />
+        <item
+            android:id="@+id/nav_Leadsmarket"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="LeadsMarket" />
+        <item
+            android:id="@+id/nav_mynetwork"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My Network" />
+        <item
+            android:id="@+id/nav_myearning"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My MyEarning" />
+        <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="Earning Calculator" />

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+    <TextView
+        android:id="@+id/textViewusername"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:text="Sign In"
+        android:textStyle="normal|bold"
+        android:textSize="27dp"
+        android:gravity="center"
+        android:background="#2196f3"
+        android:textColor="#fff"
+        android:typeface="normal"
+        android:layout_weight="0.02" />
+    <ImageView
+        android:layout_width="114dp"
+        android:layout_height="114dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/fcslogo"
+        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="257dp"
+    android:background="@drawable/border"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+        android:baselineAligned="false">
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
